@@ -9,20 +9,24 @@ pipeline {
                 '''
             }
         }
+
         stage('Test') {
             steps {
                 bat '''
-                echo Ejecutando pruebas con pytest...
-                C:\\Users\\javi_\\miniconda3\\Scripts\\activate.bat mlip && pytest
+                echo Instalando dependencias y ejecutando pruebas...
+                pip install pytest numpy pandas scikit-learn
+                pytest
                 '''
             }
         }
+
         stage('Deploy') {
             steps {
                 bat '''
-                echo Paso de despliegue: nada que hacer aquí
+                echo Despliegue completado (simulado)
                 '''
             }
         }
     }
 }
+
