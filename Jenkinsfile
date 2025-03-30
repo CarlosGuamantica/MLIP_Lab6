@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 bat '''
-                echo En Python, no es necesario compilar
+                echo En Python no es necesario compilar.
                 '''
             }
         }
@@ -13,9 +13,11 @@ pipeline {
         stage('Test') {
             steps {
                 bat '''
-                echo Instalando dependencias y ejecutando pruebas...
-                pip install pytest numpy pandas scikit-learn
-                pytest
+                echo Instalando dependencias y ejecutando pruebas desde entorno mlip...
+
+                C:\\Users\\javi_\\Documents\\MLIP_Lab6\\mlip\\Scripts\\pip.exe install pytest numpy pandas scikit-learn
+
+                C:\\Users\\javi_\\Documents\\MLIP_Lab6\\mlip\\Scripts\\python.exe -m pytest
                 '''
             }
         }
@@ -23,7 +25,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 bat '''
-                echo Despliegue completado (simulado)
+                echo Etapa de despliegue simulada completada.
                 '''
             }
         }
